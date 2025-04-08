@@ -15,7 +15,7 @@ const UploadImage = () => {
     const [loading, setLoading] = useState(false);
     const [showModal, setShowModal] = useState(false); // ✅ State for logout modal
     const navigate = useNavigate();
-
+    const API_BASE = process.env.REACT_APP_API_BASE_U
     const handleLogoutClick = () => {
         setShowModal(true); // ✅ Show logout modal
     };
@@ -48,7 +48,7 @@ const UploadImage = () => {
         setLoading(true);
 
         try {
-            const response = await fetch("http://localhost:5000/api/upload", {
+            const response = await fetch(`${API_BASE}/api/upload`, {
                 method: "POST",
                 body: formData,
             });
@@ -78,7 +78,7 @@ const UploadImage = () => {
         navigate("/results", {
             state: {
                 originalImage: URL.createObjectURL(image),
-                segmentedImage: `http://localhost:5000/${segmentedPath.replace(/\\/g, "/")}`
+                segmentedImage: `${API_BASE}/${segmentedPath.replace(/\\/g, "/")}`
             }
         });
     };

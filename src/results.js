@@ -13,7 +13,7 @@ const SegmentationResultsPage = () => {
 
   const originalRef = useRef(null);
   const segmentedRef = useRef(null);
-
+  const API_BASE = process.env.REACT_APP_API_BASE_U
   const downloadReport = async () => {
     const email = localStorage.getItem('email'); // ya jahan se email mil rahi ho
     if (!email) {
@@ -35,6 +35,7 @@ const SegmentationResultsPage = () => {
       const imgProps = pdf.getImageProperties(imgData);
       const pdfImgWidth = pageWidth - 20;
       const pdfImgHeight = (imgProps.height * pdfImgWidth) / imgProps.width;
+      const API_BASE = process.env.REACT_APP_API_BASE_URL;
       pdf.addImage(imgData, 'PNG', 10, currentHeight, pdfImgWidth, pdfImgHeight);
       return pdfImgHeight;
     };
@@ -61,7 +62,7 @@ const SegmentationResultsPage = () => {
     formData.append('email', email);
   
     try {
-      const response = await fetch('http://localhost:5000/api/history/upload', {
+      const response = await fetch(`${API_BASE}/api/history/upload`, {
         method: 'POST',
         body: formData,
       });

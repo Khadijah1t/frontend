@@ -6,6 +6,7 @@ const HistoryImages = () => {
   const [uploads, setUploads] = useState([]);
   const [error, setError] = useState(null);
   const userEmail = localStorage.getItem("email");
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
   useEffect(() => {
     if (!userEmail) {
       setError("User not logged in.");
@@ -14,7 +15,7 @@ const HistoryImages = () => {
 
     const fetchUploads = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/upload/user/${userEmail}`);
+        const response = await axios.get(`${API_BASE}/api/upload/user/${userEmail}`);
         setUploads(response.data);
       } catch (error) {
         setError("Error fetching uploads: " + error.response?.data?.message || error.message);
@@ -57,7 +58,7 @@ const HistoryImages = () => {
                 <td>{idx + 1}</td>
                 <td>
                   <a
-                    href={`http://localhost:5000/${upload.originalImage.replace(/\\/g, '/')}`}
+                    href={`${API_BASE}/${upload.originalImage.replace(/\\/g, '/')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -66,7 +67,7 @@ const HistoryImages = () => {
                 </td>
                 <td>
                   <a
-                    href={`http://localhost:5000/${upload.segmentedImage.replace(/\\/g, '/')}`}
+                    href={`${API_BASE}/${upload.segmentedImage.replace(/\\/g, '/')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
