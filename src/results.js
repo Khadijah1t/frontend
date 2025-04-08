@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-
+const API_BASE = process.env.REACT_APP_API_BASE_U
 const SegmentationResultsPage = () => {
   
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const SegmentationResultsPage = () => {
 
   const originalRef = useRef(null);
   const segmentedRef = useRef(null);
-  const API_BASE = process.env.REACT_APP_API_BASE_U
+  
   const downloadReport = async () => {
     const email = localStorage.getItem('email'); // ya jahan se email mil rahi ho
     if (!email) {
@@ -35,7 +35,7 @@ const SegmentationResultsPage = () => {
       const imgProps = pdf.getImageProperties(imgData);
       const pdfImgWidth = pageWidth - 20;
       const pdfImgHeight = (imgProps.height * pdfImgWidth) / imgProps.width;
-      const API_BASE = process.env.REACT_APP_API_BASE_URL;
+      
       pdf.addImage(imgData, 'PNG', 10, currentHeight, pdfImgWidth, pdfImgHeight);
       return pdfImgHeight;
     };

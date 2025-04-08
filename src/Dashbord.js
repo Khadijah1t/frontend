@@ -6,7 +6,7 @@ import ConfirmationModal from './ConfirmationModal';  // Import the modal
 import logo from './logoFY.avif'; // adjust path if needed
 import { NavLink } from 'react-router-dom';
 import { useEffect } from "react"; // Already partially imported
-
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const Dashboard = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [totalAnalysis, setTotalAnalysis] = useState(0);
   const [recentUploads, setRecentUploads] = useState(0);
   const [completedReports, setCompletedReports] = useState(0);
-  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+  
   useEffect(() => {
     fetch(`${API_BASE}/api/dashboard/stats/${email}`)
       .then((res) => res.json())

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./History.css";
-
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const HistoryImages = () => {
   const [uploads, setUploads] = useState([]);
   const [error, setError] = useState(null);
   const userEmail = localStorage.getItem("email");
-  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+  
   useEffect(() => {
     if (!userEmail) {
       setError("User not logged in.");
