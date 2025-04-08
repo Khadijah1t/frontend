@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { FaImage } from "react-icons/fa";
 import "./History.css";
 
 const HistoryImages = () => {
   const [uploads, setUploads] = useState([]);
   const [error, setError] = useState(null);
   const userEmail = localStorage.getItem("email");
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (!userEmail) {
       setError("User not logged in.");

@@ -25,7 +25,7 @@ const Dashboard = () => {
         setCompletedReports(data.completedReports);
       })
       .catch((err) => console.error("Error fetching stats:", err));
-  }, []);
+  }, [email]);
   // Placeholder avatar (like WhatsApp default image)
   const defaultAvatar = "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=random&color=fff";
   // Check if the user is logged in (if token exists)

@@ -9,10 +9,6 @@ import {
 } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import ConfirmationModal from './ConfirmationModal';  // ✅ Import the modal
-
-const name = localStorage.getItem("username") || "User";
-const defaultAvatar = "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=random&color=fff";
-
 const UploadImage = () => {
     const [image, setImage] = useState(null);
     const [segmentedPath, setSegmentedPath] = useState('');
