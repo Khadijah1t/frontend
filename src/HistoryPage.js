@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";  // Make sure to install axios
 import "./History.css"
-const API_BASE = process.env.REACT_APP_API_BASE_U
+const API_BASE = process.env.REACT_APP_API_BASE_URL
 const HistoryPage = () => {
   const [pdfs, setPdfs] = useState([]);
   const userEmail = localStorage.getItem("email");  // Assuming email is stored in localStorage

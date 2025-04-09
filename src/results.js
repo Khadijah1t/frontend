@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-const API_BASE = process.env.REACT_APP_API_BASE_U
+const API_BASE = process.env.REACT_APP_API_BASE_URL
 const SegmentationResultsPage = () => {
   
   const navigate = useNavigate();

@@ -15,7 +15,7 @@ const UploadImage = () => {
     const [loading, setLoading] = useState(false);
     const [showModal, setShowModal] = useState(false); // ✅ State for logout modal
     const navigate = useNavigate();
-    const API_BASE = process.env.REACT_APP_API_BASE_U
+    const API_BASE = process.env.REACT_APP_API_BASE_URL
     const handleLogoutClick = () => {
         setShowModal(true); // ✅ Show logout modal
     };
